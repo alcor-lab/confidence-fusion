@@ -1,0 +1,25 @@
+NVCC = nvcc
+DEPS = 
+CFLAGS = -I. -DITER
+
+#change arch and code according to your hardware
+CUDA_OPTIONS = -ptx -arch=compute_52 -code=sm_52 --ptxas-options=-v 
+
+all: tvq2opt tvxopt
+
+sep: tvq2opt_sep tvxopt_sep
+
+tvq2opt: tvq2opt.cu $(DEPS)
+	$(NVCC) $(CUDA_OPTIONS) -o $@.ptx %s $(CFLAGS) 1>&2
+	
+tvxopt: tvxopt.cu $(DEPS)
+	$(NVCC) $(CUDA_OPTIONS) -o $@.ptx %s $(CFLAGS) 1>&2
+
+tvq2opt_sep: tvq2opt_sep.cu $(DEPS)
+	$(NVCC) $(CUDA_OPTIONS) -o $@.ptx %s $(CFLAGS) 1>&2
+	
+tvxopt_sep: tvxopt_sep.cu $(DEPS)
+	$(NVCC) $(CUDA_OPTIONS) -o $@.ptx %s $(CFLAGS) 1>&2
+
+clean:
+	rm *.ptx
