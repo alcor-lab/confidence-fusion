@@ -14,10 +14,14 @@ ALCOR Lab <alcor@diag.uniroma1.it> [http://www.diag.uniroma1.it/~alcor](http://w
 
 ##Instructions##
 
-To run the program you first need to add the 'external' folderin the Matlab path. 
+To run the demo you need to download the KITTI 2012 multiview dataset (data, calibration files, and multi-view extension) from [here](http://www.cvlibs.net/datasets/kitti/eval_stereo_flow.php?benchmark=stereo).  
+
+The disparity maps for all the stereo-pairs of the dataset, computed based on the method presented in the paper "Confidence driven TGV fusion", J. Zbontar and Y. LeCun, CVPR, 2015, are available for download from [here](http://www.dis.uniroma1.it/~alcor/site/datasets/kitti_2012_mv_cm-cnn.zip). 
 
 ##Quickstart
 1. Compile the CUDA kernels located in the `./cuda` folder. Under Windows you can use the provided Makefile: `nmake -f Makefile.win all`;
+
+1. Modify the path variables `basedir` and `w_path` in the demo script `demo_kitti`.
 
 1. Execute the demo script:
 `demo_kitti`.
