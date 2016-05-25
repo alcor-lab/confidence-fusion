@@ -11,20 +11,34 @@ Valsamis Ntouskos <ntouskos@diag.uniroma1.it>, [http://www.diag.uniroma1.it/~nto
 
 ALCOR Lab <alcor@diag.uniroma1.it> [http://www.diag.uniroma1.it/~alcor](http://www.diag.uniroma1.it/~alcor), 
 
-
-##Instructions##
+## KITTI 2012##
+###Instructions###
 
 To run the demo you need to download the KITTI 2012 multiview dataset (data, calibration files, and multi-view extension) from [here](http://www.cvlibs.net/datasets/kitti/eval_stereo_flow.php?benchmark=stereo).  
 
 The disparity maps for all the stereo-pairs of the dataset, computed based on the method presented in the paper "Confidence driven TGV fusion", J. Zbontar and Y. LeCun, CVPR, 2015, are available for download from [here](http://www.dis.uniroma1.it/~alcor/site/datasets/kitti_2012_mv_cm-cnn.zip). 
 
-##Quickstart
+###Quickstart###
 1. Compile the CUDA kernels located in the `./cuda` folder. Under Windows you can use the provided Makefile: `nmake -f Makefile.win all`;
 
 1. Modify the path variables `basedir` and `w_path` in the demo script `demo_kitti`.
 
 1. Execute the demo script:
 `demo_kitti`.
+
+##Synthetic Datasets
+###Instructions###
+You can run the scripts that process the synthetic datasets used in the paper. These datasets are available for download from [here](http://www.dis.uniroma1.it/~alcor/site/datasets/fusion_synthetic_data.zip).
+
+###Quickstart###
+1. Compile the CUDA kernels located in the `./cuda` folder. Under Windows you can use the provided Makefile: `nmake -f Makefile.win all`;
+
+1. Modify the path variables `basedir` and `w_path` in the demo scripts `proc_synth_data_objects` and `proc_synth_data_urban`.
+
+1. Execute the script:
+`proc_synth_data_objects` or `proc_synth_data_urban`.
+
+1. Use script `showSurf` to visualize the surfaces corresponding to the fused depth images.
 
 ## External dependencies 
 
