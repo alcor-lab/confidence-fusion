@@ -1,6 +1,6 @@
 NVCC = nvcc
-DEPS = diff.h
-CFLAGS=-I.
+DEPS = 
+CFLAGS= -I. -DITER
 
 #change arch and code according to your hardware
 CUDA_OPTIONS = -ptx -arch=compute_30 -code=sm_30 --ptxas-options=-v
